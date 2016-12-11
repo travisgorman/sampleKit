@@ -12,7 +12,7 @@ Since this project uses specific key events, it uses the `<kbd>` tag to display 
 * be able to play a new sound without having to wait for current sound to finish playing
 * remove the `playing` class after a certain amount of time (using transition events, not timers)
 
-[screenshot of my completed drumkit app]('./complete.png')
+![screenshot of my completed drumkit app](/complete.png)
 
 ___
 ```js
@@ -61,7 +61,7 @@ Here is a handy website that will tell you the keycode of any key:
 The first step to getting a working sampler is to associate specific key elements with specific audio elements.
 I'm applying a `data-key` attribute to each key, with the value set to the keyCode of that particular key (65 for 'A', 83 for 'S', etc), and then also giving each of the audio elements a `data-key` attribute, with the value set to match a corresponding key element. 
 
-[Match `.key` elements to <audio> elements with `data` attribute]('./key-to-audio.png')
+![Match `.key` elements to <audio> elements with `data` attribute](/key-to-audio.png)
 
 ### playing audio
 [the <audio> element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
