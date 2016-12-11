@@ -6,6 +6,7 @@ The kit is played with the keyboard - not clicks. Clicking the visual representa
 Since this project uses specific key events, it uses the `<kbd>` tag to display the keys.
 Each key is a `<div class="key"`, with a `data-key` attribute — the value of which, is that key's data code.
 
+* html layout of 9 keys
 * add an event listener to each key
 * play a specific sound on press of a specific key
   - * add class `playing` to that key, and pre
