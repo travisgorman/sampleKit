@@ -12,3 +12,7 @@ Each key is a `<div class="key"`, with a `data-key` attribute — the value of w
   - * add class `playing` to that key, and pre
 * be able to play a new sound without having to wait for current sound to finish playing
 
+### transitions
+
+### keycodes
+[javascript event key codes](http://keycode.info)
