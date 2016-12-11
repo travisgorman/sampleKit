@@ -10,17 +10,7 @@ Since this project uses specific key events, it uses the `<kbd>` tag to display 
 * play a specific sound on press of a specific key
   - add class `playing` to that key
 * be able to play a new sound without having to wait for current sound to finish playing
-
-### transitions
-
-
-### keycodes
-[javascript event key codes](http://keycode.info)
-
-
-### playing audio
-[the <audio> element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
-
+* remove the `playing` class after a certain amount of time (using transition events, not timers)
 
 ___
 ```js
@@ -61,10 +51,17 @@ function removeTransition(e){
 ```
 ___
 
-## `event.keyCode`
+### keycodes — `event.keyCode`
+all key events have a property called `keyCode`. this a number that identifies the key that was pressed. They also have a `keyName` property. Names can be different, but keyCodes are universal.
+Here is a handy website that will tell you the keycode of any key:
+[javascript event key codes](http://keycode.info)
+
+### playing audio
+[the <audio> element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
+In this project I am using the `play()` method on the web audio API, as well as the `currentTime` property.
 
 
-## attribute selector
+### attribute selector
 [Attribute Selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) select an element using the presence of a given attribute or attribute value.
 
 ```js
@@ -78,9 +75,26 @@ const audio = document.querySelector('audio[src="sounds/boom.wav"]');
 ```
 but since I am trying to match a dynamic value (key event) with a static value (the `data-key` value of an `<audio>`element), I am interpolating the value of the attribute on the fly, using [es6 template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
 
-## string interpolation
+### string interpolation with template literals
 To insert a JavaScript expression into a string, wrap the string in **backticks** instead of single-quotes. Remember single-quotes for JS, and double-quotes for attributes. The backticks are replacing the single-quotes, so they go around the entire string. The HTML attribute still needs double-quotes around it. Except it contains an `${expression}` instead
 of a string value. 
 
 Anything inside of a `${ }` is evaluated and interpolated into the string.
 
+### `transitionend` event
+the [transitionend](https://developer.mozilla.org/en-US/docs/Web/Events/transitionend) is fired when a CSS event has finished. I want the border to only last as long as the scaling effect itself, which I have set to 0.07 seconds in `style.css`
+
+[CSS Transitions:](https://drafts.csswg.org/css-transitions/) the official CSS spec
+
+___
+
+# in this project...
+
+* `event.keyCode`
+* `data` attribute
+* attribute selectors
+* string interpolation with template literals
+* vertical centering with Flexbox
+* CSS transition / transform
+* `transitionend` event
+* audio elements & web audio API
