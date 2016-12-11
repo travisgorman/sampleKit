@@ -59,3 +59,28 @@ function removeTransition(e){
 }
 
 ```
+___
+
+## `event.keyCode`
+
+
+## attribute selector
+[Attribute Selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) select an element using the presence of a given attribute or attribute value.
+
+```js
+const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+```
+
+If I wanted `audio` to equal something with a static value, like only audio elements that played `boom.wav` the `boom.wav` sample, I could write
+
+```js
+const audio = document.querySelector('audio[src="sounds/boom.wav"]');
+```
+but since I am trying to match a dynamic value (key event) with a static value (the `data-key` value of an `<audio>`element), I am interpolating the value of the attribute on the fly, using [es6 template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
+
+## string interpolation
+To insert a JavaScript expression into a string, wrap the string in **backticks** instead of single-quotes. Remember single-quotes for JS, and double-quotes for attributes. The backticks are replacing the single-quotes, so they go around the entire string. The HTML attribute still needs double-quotes around it. Except it contains an `${expression}` instead
+of a string value. 
+
+Anything inside of a `${ }` is evaluated and interpolated into the string.
+
